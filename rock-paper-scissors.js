@@ -22,65 +22,79 @@ const getComputerChoice = () => {
 }
 
 const playRound = (move) => {
+  if (score.wins === 5) {
+    roundWinner.textContent = '';
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+  } else if (score.losses === 5) {
+    roundWinner.textContent = '';
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+  }
   let playerMove = move;
   const computerMove = getComputerChoice();
 //first if your move is rock
   if (playerMove === 'rock' && computerMove === 'rock') {
     score.ties++;
-    resultDisplayer.textContent = `It's a tie!
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `It's a Tie!<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br>
+    Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
 
   } else if (playerMove === 'rock' && computerMove === 'paper') {
     score.losses++;
-    resultDisplayer.textContent = `You lose! ${computerMove} beats ${playerMove}
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `You lose!<br> ${computerMove} beats ${playerMove}<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
 
   } else if (playerMove === 'rock' && computerMove === 'scissors') {
     score.wins++;
-    resultDisplayer.textContent = `You win! ${playerMove} beats ${computerMove}
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `You win!<br> ${playerMove} beats ${computerMove}<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
   }
 
   //if you choose paper
 
   if (playerMove === 'paper' && computerMove === 'rock') {
     score.wins++;
-    resultDisplayer.textContent = `You win! ${playerMove} beats ${computerMove}
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `You win!<br> ${playerMove} beats ${computerMove}<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
 
   } else if (playerMove === 'paper' && computerMove === 'paper') {
     score.ties++;
-    resultDisplayer.textContent = `It's a tie!
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `It's a Tie!<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br>
+    Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
 
   } else if (playerMove === 'paper' && computerMove === 'scissors') {
     score.losses++;
-    resultDisplayer.textContent = `You lose! ${computerMove} beats ${playerMove}
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `You lose!<br> ${computerMove} beats ${playerMove}<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
   }
 
   //if you choose scissors
 
   if (playerMove === 'scissors' && computerMove === 'rock') {
     score.losses++;
-    resultDisplayer.textContent = `You lose! ${computerMove} beats ${playerMove}
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `You lose!<br> ${computerMove} beats ${playerMove}<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
 
   } else if (playerMove === 'scissors' && computerMove === 'paper') {
     score.wins++;
-    resultDisplayer.textContent = `You win! ${playerMove} beats ${computerMove}
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `You win!<br> ${playerMove} beats ${computerMove}<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
 
   } else if (playerMove === 'scissors' && computerMove === 'scissors') {
     score.ties++;
-    resultDisplayer.textContent = `It's a tie!
-    Your Move: ${playerMove}, Computer Move: ${computerMove}. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    resultDisplayer.innerHTML = `It's a Tie!<br>
+    Your Move: ${playerMove}, Computer Move: ${computerMove}.<br>
+    Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
   }
 
   if (score.wins === 5) {
-    roundWinner.textContent = `Game over! You win the round. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    roundWinner.innerHTML = `Game over!<br> You win the round <br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
   } else if (score.losses === 5) {
-    roundWinner.textContent = `Game over! Computer wins the round. Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
+    roundWinner.innerHTML = `Game over!<br> Computer wins the round <br> Score: wins: ${score.wins} losses: ${score.losses} ties: ${score.ties}`;
   }
 }
 
