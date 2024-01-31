@@ -35,7 +35,9 @@ const playRound = (move) => {
   }
   let playerMove = move;
   const computerMove = getComputerChoice();
-//first if your move is rock
+  
+  //if you choose rock
+
   if (playerMove === 'rock' && computerMove === 'rock') {
     score.ties++;
     resultDisplayer.innerHTML = `It's a Tie!<br>
@@ -113,25 +115,3 @@ paperButton.addEventListener('click', () => {
 scissorsButton.addEventListener('click', () => {
   playRound('scissors');
 });
-
-/*const game = () => {
-  if (roundsPlayed < 5) {
-    roundsPlayed++
-    return playRound()
-  } else {
-    if (score.wins > score.losses) {
-      return `Game Over.
-You won the round! Final score: wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
-    } else if (score.wins === score.losses) {
-      return `Game Over.
-You tied the round! Final score: wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
-    } else if (score.wins < score.losses) {
-      return `Game Over.
-Computer won the round! Final score: wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
-    }
-  }
-}
-
-for (let i = 0; i < 6; i++) {
-  console.log(game());
-}*/
